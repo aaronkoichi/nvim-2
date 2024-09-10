@@ -198,6 +198,8 @@ vim.g.mapleader = ' '
 vim.opt.incsearch = true
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
+vim.keymap.set('v', '<S-down>', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', '<S-up>', ":m '<-2<CR>gv=gv")
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -279,6 +281,21 @@ require('lazy').setup({
   -- Then, because we use the `config` key, the configuration only runs
   -- after the plugin has been loaded:
   --  config = function() ... end
+  {
+    'Diogo-ss/42-header.nvim',
+    cmd = { 'Stdheader' },
+    keys = { '<F1>' },
+    opts = {
+      default_map = true, -- Default mapping <F1> in normal mode.
+      auto_update = true, -- Update header when saving.
+      user = 'zlee', -- Your user.
+      mail = 'zlee@student.42kl.edu.my', -- Your mail.
+      -- add other options.
+    },
+    config = function(_, opts)
+      require('42header').setup(opts)
+    end,
+  },
   { -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
