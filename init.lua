@@ -200,6 +200,7 @@ vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 vim.keymap.set('v', '<S-down>', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', '<S-up>', ":m '<-2<CR>gv=gv")
+vim.keymap.set('n', '<C-n>', ':Neotree toggle<CR>', {})
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -281,6 +282,16 @@ require('lazy').setup({
   -- Then, because we use the `config` key, the configuration only runs
   -- after the plugin has been loaded:
   --  config = function() ... end
+  {
+    'nvim-neo-tree/neo-tree.nvim',
+    branch = 'v3.x',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
+      'MunifTanjim/nui.nvim',
+      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+    },
+  },
   {
     'Diogo-ss/42-header.nvim',
     cmd = { 'Stdheader' },
