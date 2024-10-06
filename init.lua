@@ -454,7 +454,7 @@ require('lazy').setup({
 
       require('lualine').setup {
         options = {
-          theme = 'gruvbox-baby',
+          theme = 'oxocarbon',
           component_separators = '|',
           section_separators = { left = '', right = '' },
         },
@@ -932,8 +932,8 @@ require('lazy').setup({
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'luisiacc/gruvbox-baby',
-    name = 'gruvbox-baby',
+    'nyoom-engineering/oxocarbon.nvim',
+    name = 'oxocarbon',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
       -- Load the colorscheme here.
@@ -941,7 +941,7 @@ require('lazy').setup({
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
       vim.o.background = 'dark' -- or "light" for light mode
       -- vim.g.gruvbox_material_background = 'hard'
-      vim.cmd.colorscheme 'gruvbox-baby'
+      vim.cmd.colorscheme 'oxocarbon'
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
     end,
