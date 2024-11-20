@@ -280,7 +280,7 @@ require('lazy').setup({
       dashboard.section.buttons.val = {
         dashboard.button('e', '  New file', ':ene <BAR> startinsert <CR>'),
         dashboard.button('q', '󰅚  Quit NVIM', ':qa<CR>'),
-        dashboard.button('SPC s f', '󰅚  Find Files', ':Telescope find_files<CR>'),
+        dashboard.button('SPC f f', '󰅚  Find Files', ':Telescope find_files<CR>'),
       }
       local handle = io.popen 'fortune'
       local fortune = handle:read '*a'
@@ -494,7 +494,7 @@ require('lazy').setup({
 
       require('lualine').setup {
         options = {
-          theme = require 'material.lualine',
+          theme = 'rose-pine',
           component_separators = '|',
           section_separators = { left = '', right = '' },
         },
@@ -546,7 +546,7 @@ require('lazy').setup({
       local builtin = require 'telescope.builtin'
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-      vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+      vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
@@ -972,18 +972,26 @@ require('lazy').setup({
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'kaicataldo/material.vim',
-    name = 'material',
+    'rose-pine/neovim',
+    name = 'rose-pine',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.g.material_theme_style = 'darker' -- or "light" for light mode
+      -- vim.g.material_theme_style = 'darker' -- or "light" for light mode
       -- vim.g.gruvbox_material_background = 'hard'
-      vim.cmd.colorscheme 'material'
+      vim.cmd.colorscheme 'rose-pine'
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
+    end,
+    config = function()
+      require('rose-pine').setup {
+        styles = {
+          bold = true,
+          transparency = false,
+        },
+      }
     end,
   },
 
