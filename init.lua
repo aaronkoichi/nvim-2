@@ -202,6 +202,8 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz')
 vim.keymap.set('v', '<S-down>', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', '<S-up>', ":m '<-2<CR>gv=gv")
 vim.keymap.set('n', '<C-n>', ':Neotree toggle<CR>', {})
+vim.keymap.set('v', '<leader>c', ':norm I//<CR>', { noremap = true, silent = true, desc = 'Comment Lines with //' })
+vim.keymap.set('v', '<leader>u', ':norm ^xx<CR>', { noremap = true, silent = true, desc = 'Uncomment Lines with //' })
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
