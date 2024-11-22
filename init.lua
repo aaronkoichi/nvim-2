@@ -185,7 +185,6 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 --  Use CTRL+<hjkl> to switch between windows
 --
 --  See `:help wincmd` for a list of all window commands
-vim.keymap.set('n', '<leader>t', ':ToggleTerm<CR>')
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
@@ -322,7 +321,11 @@ require('lazy').setup({
   -- Then, because we use the `config` key, the configuration only runs
   -- after the plugin has been loaded:
   --  config = function() ... end
-  { 'akinsho/toggleterm.nvim', version = '*', config = true },
+  { 'akinsho/toggleterm.nvim', version = '*', opts = {
+    size = 20,
+    direction = 'float',
+    open_mapping = [[<c-\>]],
+  } },
   {
     'nvim-neo-tree/neo-tree.nvim',
     branch = 'v3.x',
@@ -989,6 +992,7 @@ require('lazy').setup({
     end,
     config = function()
       require('rose-pine').setup {
+        variant = 'moon',
         styles = {
           bold = true,
           transparency = false,
