@@ -200,9 +200,7 @@ vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 vim.keymap.set('v', '<S-down>', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', '<S-up>', ":m '<-2<CR>gv=gv")
-vim.keymap.set('n', '<C-n>', ':Neotree toggle<CR>', {})
-vim.keymap.set('v', '<leader>c', ':norm I//<CR>', { noremap = true, silent = true, desc = 'Comment Lines with //' })
-vim.keymap.set('v', '<leader>u', ':norm ^xx<CR>', { noremap = true, silent = true, desc = 'Uncomment Lines with //' })
+vim.keymap.set('n', '<C-n>', ':Neotree toggle right<CR>', {})
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -499,7 +497,7 @@ require('lazy').setup({
 
       require('lualine').setup {
         options = {
-          theme = 'rose-pine',
+          theme = 'kanagawa',
           component_separators = '|',
           section_separators = { left = '', right = '' },
         },
@@ -558,6 +556,7 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
+      vim.keymap.set('n', '<leader>gt', builtin.git_status, { desc = 'Find [g]it s[t]atus.' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
       -- Slightly advanced example of overriding default behavior and theme
@@ -977,8 +976,8 @@ require('lazy').setup({
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'rose-pine/neovim',
-    name = 'rose-pine',
+    'rebelot/kanagawa.nvim',
+    name = 'kanagawa',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
       -- Load the colorscheme here.
@@ -986,19 +985,19 @@ require('lazy').setup({
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
       -- vim.g.material_theme_style = 'darker' -- or "light" for light mode
       -- vim.g.gruvbox_material_background = 'hard'
-      vim.cmd.colorscheme 'rose-pine'
+      vim.cmd.colorscheme 'kanagawa-wave'
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
     end,
-    config = function()
-      require('rose-pine').setup {
-        variant = 'moon',
-        styles = {
-          bold = true,
-          transparency = false,
-        },
-      }
-    end,
+    -- config = function()
+    --   require('rose-pine').setup {
+    --     variant = 'moon',
+    --     styles = {
+    --       bold = true,
+    --       transparency = false,
+    --     },
+    --   }
+    -- end,
   },
 
   -- Highlight todo, notes, etc in comments
@@ -1023,10 +1022,10 @@ require('lazy').setup({
       require('mini.surround').setup()
       require('mini.comment').setup {
         mappings = {
-          comment = '<leader>c',
-          comment_line = '<leader>cc',
-          comment_visual = '<leader>c',
-          textobject = '<leader>c',
+          comment = '<leader>/',
+          comment_line = '<leader>/',
+          comment_visual = '<leader>/',
+          textobject = '<leader>/',
         },
       }
       -- Simple and easy statusline.
