@@ -303,21 +303,15 @@ require('lazy').setup({
       local alpha = require 'alpha'
       local dashboard = require 'alpha.themes.dashboard'
       dashboard.section.header.val = {
-        [[        ⢀⣴⡾⠃⠄⠄⠄⠄⠄⠈⠺⠟⠛⠛⠛⠛⠻⢿⣿⣿⣿⣿⣶⣤⡀   ]],
-        [[      ⢀⣴⣿⡿⠁⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⣸⣿⣿⣿⣿⣿⣿⣿⣷  ]],
-        [[     ⣴⣿⡿⡟⡼⢹⣷⢲⡶⣖⣾⣶⢄⠄⠄⠄⠄⠄⢀⣼⣿⢿⣿⣿⣿⣿⣿⣿⣿  ]],
-        [[    ⣾⣿⡟⣾⡸⢠⡿⢳⡿⠍⣼⣿⢏⣿⣷⢄⡀⠄⢠⣾⢻⣿⣸⣿⣿⣿⣿⣿⣿⣿  ]],
-        [[  ⣡⣿⣿⡟⡼⡁⠁⣰⠂⡾⠉⢨⣿⠃⣿⡿⠍⣾⣟⢤⣿⢇⣿⢇⣿⣿⢿⣿⣿⣿⣿⣿  ]],
-        [[ ⣱⣿⣿⡟⡐⣰⣧⡷⣿⣴⣧⣤⣼⣯⢸⡿⠁⣰⠟⢀⣼⠏⣲⠏⢸⣿⡟⣿⣿⣿⣿⣿⣿  ]],
-        [[ ⣿⣿⡟⠁⠄⠟⣁⠄⢡⣿⣿⣿⣿⣿⣿⣦⣼⢟⢀⡼⠃⡹⠃⡀⢸⡿⢸⣿⣿⣿⣿⣿⡟  ]],
-        [[ ⣿⣿⠃⠄⢀⣾⠋⠓⢰⣿⣿⣿⣿⣿⣿⠿⣿⣿⣾⣅⢔⣕⡇⡇⡼⢁⣿⣿⣿⣿⣿⣿⢣  ]],
-        [[ ⣿⡟⠄⠄⣾⣇⠷⣢⣿⣿⣿⣿⣿⣿⣿⣭⣀⡈⠙⢿⣿⣿⡇⡧⢁⣾⣿⣿⣿⣿⣿⢏⣾  ]],
-        [[ ⣿⡇⠄⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⢻⠇⠄⠄⢿⣿⡇⢡⣾⣿⣿⣿⣿⣿⣏⣼⣿  ]],
-        [[ ⣿⣷⢰⣿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⢰⣧⣀⡄⢀⠘⡿⣰⣿⣿⣿⣿⣿⣿⠟⣼⣿⣿  ]],
-        [[ ⢹⣿⢸⣿⣿⠟⠻⢿⣿⣿⣿⣿⣿⣿⣿⣶⣭⣉⣤⣿⢈⣼⣿⣿⣿⣿⣿⣿⠏⣾⣹⣿⣿  ]],
-        [[ ⢸⠇⡜⣿⡟⠄⠄⠄⠈⠙⣿⣿⣿⣿⣿⣿⣿⣿⠟⣱⣻⣿⣿⣿⣿⣿⠟⠁⢳⠃⣿⣿⣿  ]],
-        [[  ⣰⡗⠹⣿⣄⠄⠄⠄⢀⣿⣿⣿⣿⣿⣿⠟⣅⣥⣿⣿⣿⣿⠿⠋  ⣾⡌⢠⣿⡿⠃  ]],
-        [[ ⠜⠋⢠⣷⢻⣿⣿⣶⣾⣿⣿⣿⣿⠿⣛⣥⣾⣿⠿⠟⠛⠉             ]],
+        [[    __ __    ____         ___                     ]],
+        [[   / // /__ / / /__      / _ |___ ________  ___   ]],
+        [[  / _  / -_) / / _ \_   / __ / _ `/ __/ _ \/ _ \  ]],
+        [[ /_//_/\__/_/_/\___( ) /_/ |_\_,_/_/  \___/_//_/  ]],
+        [[                   |/                             ]],
+        [[                                                  ]],
+        [[   __/__  _    _  __  _  __   __/_._  _ _/_._  _  ]],
+        [[ _\ / /_//_/  /_///_//_ //_|_\ / // //_|/ // //_/ ]],
+        [[        /    /                                _/  ]],
       }
       dashboard.section.buttons.val = {
         dashboard.button('e', '  New file', ':ene <BAR> startinsert <CR>'),
@@ -541,7 +535,7 @@ require('lazy').setup({
 
       require('lualine').setup {
         options = {
-          theme = 'kanagawa',
+          theme = 'dracula',
           component_separators = '|',
           section_separators = { left = '', right = '' },
         },
@@ -1029,7 +1023,35 @@ require('lazy').setup({
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
       -- vim.g.material_theme_style = 'darker' -- or "light" for light mode
       -- vim.g.gruvbox_material_background = 'hard'
-      vim.cmd.colorscheme 'kanagawa-wave'
+      -- vim.cmd.colorscheme 'kanagawa-wave'
+      -- You can configure highlights by doing something like:
+      -- vim.cmd.hi 'Comment gui=none'
+    end,
+    -- config = function()
+    --   require('rose-pine').setup {
+    --     variant = 'moon',
+    --     styles = {
+    --       bold = true,
+    --       transparency = false,
+    --     },
+    --   }
+    -- end,
+  },
+  { -- You can easily change to a different colorscheme.
+    -- Change the name of the colorscheme plugin below, and then
+    -- change the command in the config to whatever the name of that colorscheme is.
+    --
+    -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
+    'catppuccin/nvim',
+    name = 'catppuccin',
+    priority = 1000, -- Make sure to load this before all the other start plugins.
+    init = function()
+      -- Load the colorscheme here.
+      -- Like many other themes, this one has different styles, and you could load
+      -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+      -- vim.g.material_theme_style = 'darker' -- or "light" for light mode
+      -- vim.g.gruvbox_material_background = 'hard'
+      -- vim.cmd.colorscheme 'catppuccin-latte'
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
     end,
@@ -1044,6 +1066,34 @@ require('lazy').setup({
     -- end,
   },
 
+  { -- You can easily change to a different colorscheme.
+    -- Change the name of the colorscheme plugin below, and then
+    -- change the command in the config to whatever the name of that colorscheme is.
+    --
+    -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
+    'Mofiqul/dracula.nvim',
+    name = 'dracula',
+    priority = 1000, -- Make sure to load this before all the other start plugins.
+    init = function()
+      -- Load the colorscheme here.
+      -- Like many other themes, this one has different styles, and you could load
+      -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+      -- vim.g.material_theme_style = 'darker' -- or "light" for light mode
+      -- vim.g.gruvbox_material_background = 'hard'
+      vim.cmd.colorscheme 'dracula'
+      -- You can configure highlights by doing something like:
+      -- vim.cmd.hi 'Comment gui=none'
+    end,
+    -- config = function()
+    --   require('rose-pine').setup {
+    --     variant = 'moon',
+    --     styles = {
+    --       bold = true,
+    --       transparency = false,
+    --     },
+    --   }
+    -- end,
+  },
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
