@@ -1014,6 +1014,34 @@ require('lazy').setup({
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
+    'olimorris/onedarkpro.nvim',
+    name = 'onedark',
+    priority = 1000, -- Make sure to load this before all the other start plugins.
+    init = function()
+      -- Load the colorscheme here.
+      -- Like many other themes, this one has different styles, and you could load
+      -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+      -- vim.g.material_theme_style = 'darker' -- or "light" for light mode
+      -- vim.g.gruvbox_material_background = 'hard'
+      vim.cmd.colorscheme 'onedark'
+      -- You can configure highlights by doing something like:
+      vim.cmd.hi 'Comment gui=none'
+    end,
+    -- config = function()
+    --   require('rose-pine').setup {
+    --     variant = 'moon',
+    --     styles = {
+    --       bold = true,
+    --       transparency = false,
+    --     },
+    --   }
+    -- end,
+  },
+  { -- You can easily change to a different colorscheme.
+    -- Change the name of the colorscheme plugin below, and then
+    -- change the command in the config to whatever the name of that colorscheme is.
+    --
+    -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     'rebelot/kanagawa.nvim',
     name = 'kanagawa',
     priority = 1000, -- Make sure to load this before all the other start plugins.
@@ -1080,7 +1108,7 @@ require('lazy').setup({
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
       -- vim.g.material_theme_style = 'darker' -- or "light" for light mode
       -- vim.g.gruvbox_material_background = 'hard'
-      vim.cmd.colorscheme 'dracula'
+      -- vim.cmd.colorscheme 'dracula'
       -- You can configure highlights by doing something like:
       -- vim.cmd.hi 'Comment gui=none'
     end,
