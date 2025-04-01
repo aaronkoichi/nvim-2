@@ -174,7 +174,13 @@ vim.opt.scrolloff = 10
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-
+vim.keymap.set('n', '<leader>f', function()
+  if vim.bo.filetype == 'c' or vim.bo.filetype == 'h' then
+    print 'Formatting is disabled for C/ and header files!'
+    return
+  end
+  require('conform').format { sync = true, lsp_format = 'fallback' }
+end, { desc = 'Format using Conform' })
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 vim.diagnostic.config { virtual_text = true }
@@ -196,14 +202,14 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 --  Use CTRL+<hjkl> to switch between windows
 --
 --  See `:help wincmd` for a list of all window commands
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+vim.keymap.set('n', '<C-Left>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+vim.keymap.set('n', '<C-Right>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+vim.keymap.set('n', '<C-Down>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+vim.keymap.set('n', '<C-Up>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 vim.cmd 'set mouse=a'
 vim.cmd 'set tabstop=4'
 vim.cmd 'set shiftwidth=4'
-vim.cmd 'set nu'
+vim.cmd 'set relativenumber'
 vim.cmd 'set scrolloff=8'
 vim.g.mapleader = ' '
 vim.opt.incsearch = true
@@ -855,14 +861,14 @@ require('lazy').setup({
     event = { 'BufWritePre' },
     cmd = { 'ConformInfo' },
     keys = {
-      {
-        '<leader>f',
-        function()
-          require('conform').format { async = true, lsp_format = 'fallback' }
-        end,
-        mode = '',
-        desc = '[F]ormat buffer',
-      },
+      -- {
+      --   '<leader>f',
+      --   function()
+      --     require('conform').format { async = true, lsp_format = 'fallback' }
+      --   end,
+      --   mode = '',
+      --   desc = '[F]ormat buffer',
+      -- },
     },
     opts = {
       notify_on_error = false,
@@ -884,6 +890,7 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        c = {},
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
